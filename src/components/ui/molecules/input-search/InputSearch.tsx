@@ -7,7 +7,7 @@ interface InputSearchProps {
 }
 export const InputSearch:React.FC<InputSearchProps> = ({ search, setSearch, onSearch }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Evita que recargue la página
+    e.preventDefault(); 
     onSearch();
   }
   
