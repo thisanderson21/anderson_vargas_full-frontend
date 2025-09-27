@@ -20,10 +20,10 @@ export class SpotifyRepositoryService implements SpotifyRepository {
       const albums = data?.albums?.items || [];
 
       const ids = albums.map((a) => a.id).join(",");
-
+      
       const { data: savedFlags } = await axiosIntance.get<boolean[]>(
         `/me/albums/contains?ids=${ids}`
-      );
+      ).catch(() => ({ data: [] }));
 
       return {
         ...data,
@@ -134,7 +134,7 @@ export class SpotifyRepositoryService implements SpotifyRepository {
 
       const { data: savedFlags } = await axiosIntance.get<boolean[]>(
         `/me/albums/contains?ids=${ids}`
-      );
+      ).catch(() => ({ data: [] }));
 
       return data.items.map((item, index) => ({
         ...item,

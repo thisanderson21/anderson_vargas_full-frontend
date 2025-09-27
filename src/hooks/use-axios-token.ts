@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import axiosIntance  from '@/core/axios-config';
 import { InternalAxiosRequestConfig , AxiosResponse, AxiosError } from 'axios';
 
-import { getSession } from 'next-auth/react';
+import { getSession, signOut } from 'next-auth/react';
 
 interface TokenSession {
   accessToken?: string;
@@ -10,7 +10,17 @@ interface TokenSession {
 
 const useAxiosToken = () => {
   const interceptors = useMemo(() => ({
-    error: (error: AxiosError) => Promise.reject(error),
+    error: (error: AxiosError) => {
+      if (error.response?.status === 401) {
+        signOut({ callbackUrl: '/login' });
+        alert('Tu sesión ha expirado. Por favor inicia sesión de nuevo.');
+      } else {
+        alert(`Ocurrió un error: ${error.message}`);
+      }
+      console.error('Axios error:', error);
+  
+      return Promise.reject(error);
+    },
 
     request: async (config: InternalAxiosRequestConfig) => {
       const session: TokenSession | null = await getSession();
