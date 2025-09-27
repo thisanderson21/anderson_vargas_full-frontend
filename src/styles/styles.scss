@@ -1,0 +1,43 @@
+@import 'scss/partial/fonts';
+@import 'scss/partial/typography';
+@import 'scss/modules/var';
+@import 'themes/dark.scss';
+@import 'themes/light.scss';
+
+*{
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background) !important;
+  color: var(--text-primary);
+
+  overflow: overlay;
+  position: relative;
+  &::-webkit-scrollbar {
+    width:  7px;
+    max-height: 2px !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+}
+
+button, a {
+  cursor: pointer;
+}
+
+.text-accent {
+  color: var(--text-accent);
+}

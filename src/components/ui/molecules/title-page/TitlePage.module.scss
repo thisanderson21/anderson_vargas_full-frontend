@@ -1,0 +1,43 @@
+@import '../../../../styles/scss/modules/mixins';
+
+.titlePage {
+  margin-top: 41px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 31px;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+
+  @include media('md') {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 24px;
+
+    @include media('md') {
+      font-size: 64px;
+    }
+
+    span {
+      color: var(--text-accent);
+    }
+  }
+
+  p {
+    margin: 0;
+    line-height: 32px;
+    font-weight: 400;
+    margin-bottom: 33px;
+
+    @include media('md') {
+      white-space: pre-line 
+    }
+  }
+}

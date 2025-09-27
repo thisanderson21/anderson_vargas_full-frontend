@@ -1,0 +1,61 @@
+// 📱 Breakpoints modernos (mobile-first)
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 360px,   // móviles pequeños
+  sm: 480px,   // móviles estándar
+  md: 768px,   // tablets
+  lg: 1024px,  // laptops
+  xl: 1280px,  // desktops
+  xxl: 1536px  // pantallas grandes (4K friendly)
+);
+
+// Anchos máximos de contenedor
+$container-max-widths: (
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1440px
+);
+
+// Alias mobile-first usando min-width
+$breakpoints: (
+  'xs': (min-width: 360px),
+  'sm': (min-width: 480px),
+  'md': (min-width: 768px),
+  'lg': (min-width: 1024px),
+  'xl': (min-width: 1280px),
+  'xxl': (min-width: 1536px),
+) !default;
+
+// 📦 Mixin mobile-first
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn '⚠️ Breakpoint `#{$breakpoint}` no existe en el mapa.';
+  }
+}
+
+@mixin scroll-config($width) {
+	::-webkit-scrollbar {
+		background-color: transparent;
+		cursor: pointer;
+		width: $width;
+
+		&:hover {
+			background-color: rgba(248, 248, 248, 0.1);
+		}
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: rgba($color: $gray-3, $alpha: 0.3);
+		border-radius: $width;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}

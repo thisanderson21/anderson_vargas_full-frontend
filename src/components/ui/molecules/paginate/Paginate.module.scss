@@ -1,0 +1,16 @@
+
+.paginate {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+
+  .active {
+    font-weight: 700;
+    color: var(--text-accent);
+  }
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}

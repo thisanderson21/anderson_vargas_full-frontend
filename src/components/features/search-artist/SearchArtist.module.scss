@@ -1,0 +1,20 @@
+@import '../../../styles/scss/modules/mixins';
+.inputSearch {
+  padding: 0 26px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.albumList {
+  padding: 0 31px;
+
+  @include media('lg') {
+    width: 80%;
+    margin: 0 auto;
+
+    p {
+      width: 100%;
+    }
+  }
+}

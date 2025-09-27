@@ -1,0 +1,71 @@
+@import '../../../styles/scss/modules/mixins';
+
+.header {
+  padding: 31.5px 24px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background-card);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  @include media('md') {
+    padding: 31.5px 80px;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text-primary);
+
+      &.active {
+        color: var(--text-accent);
+      }
+    }
+  }
+
+  .btn {
+    background: none;
+    border: none;
+    font-size: 16px !important;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  .logoLg {
+    display: none;
+    @include media('md') {
+      display: block;
+    }
+  }
+
+  .logoSm {
+    display: block;
+    @include media('md') {
+      display: none;
+    }
+  }
+
+  .iconLogout {
+    @include media('md') {
+      display: none;
+    }
+  }
+
+  .textLogout {
+    display: none;
+    @include media('md') {
+      display: block;
+    }
+  }
+
+  .iconTheme {
+    @include media('lg') {
+      display: none;
+    }
+  }
+}

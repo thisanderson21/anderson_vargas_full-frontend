@@ -1,0 +1,81 @@
+@import '../../../styles/scss/modules/mixins';
+
+.login {
+  margin-top: 62px;
+  padding-bottom: 106px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+
+  @include media('md') {
+    margin-top: 103px;
+    gap: 74px;
+  }
+
+  @include media('lg') {
+    flex-direction: row;
+    justify-content: center;
+    gap: 150px;
+  }
+  
+  .content_image {
+    padding: 0 43px;
+    @include media('md') {
+      padding: 0 87px;
+    }
+
+    @include media('lg') {
+      padding: 0;
+    }
+
+    .image {
+      position: relative;
+      width: 222px;
+      height: 222px;
+
+      @include media('md') {
+        width: 318px;
+        height: 318px;
+      }
+
+      @include media('lg') {
+        width: 464px;
+        height: 464px;
+      }
+    }
+  }
+
+  .content {
+    padding: 0 43px;
+
+    @include media('md') {
+      padding: 0 87px;
+    }
+
+    @include media('lg') {
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 40px;
+      margin-bottom: 32px;
+      line-height: 100%;
+      letter-spacing: 0;
+
+      @include media('md') {
+        margin-bottom: 36px;
+        font-size: 64px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 38px;
+      font-weight: 400;
+      @include media('md') {
+        margin-bottom: 106px;
+      }
+    }
+  }
+}

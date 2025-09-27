@@ -1,0 +1,38 @@
+@import '../../../styles/scss/modules/mixins';
+
+.detailArtist {
+  padding: 31px;
+
+  
+  @include media('md') {
+    padding: 75px 80px;
+  }
+
+  .contentArtist {
+    margin-bottom: 85px;
+
+    p {
+      font-weight: 600;
+    }
+
+    @include media('md') {
+      display: flex;
+      gap: 60px;
+    }
+  }
+
+  .imageArtist {
+    border-radius: 100%;
+  }
+
+  h3 {
+    font-size: 40px;
+    margin-top: 0;
+  }
+
+  .verify {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
